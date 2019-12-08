@@ -1,0 +1,97 @@
+<div class="content-heading page-header">
+  <div>List of Publications
+    <small>Here you can find the list of all the publications</small></div>
+</div>
+<div class="card card-default">
+  <div class="form-inline page-header">
+    <button class="ml-2 mr-2 btn btn-labeled btn-success mb-2" type="button" (click)="addNewPublication()">
+      <span class="btn-label"><i class="fa fa-plus-circle"></i>
+      </span>Add
+    </button>
+    <div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <i class="fa fa-search"></i>
+        </div>
+      </div>
+      <input class="form-control " id="buscar_text" type="text" placeholder="Search..." disabled/>
+    </div>
+
+    <button class="ml-auto mr-2 btn btn-labeled btn-primary" type="button" btnCheckbox [(ngModel)]="tableView">
+      <span class="btn-label">
+        <i class="fa fa-th-large" *ngIf="tableView"></i>
+        <i class="fa fa-list" *ngIf="!tableView"></i>
+      </span>{{tableView === false ? 'Table View': 'Grid View'}}
+    </button>
+
+  </div>
+
+
+
+  <!-- name="{{columns[0].name}}" prop="{{columns[0].prop}} -->
+  <mat-spinner *ngIf="showSpinner" color="warn" class="spinner"></mat-spinner>
+  <div class="card-body" *ngIf="tableView && !showSpinner">
+    <ngx-datatable #mydatatable class="bootstrap material" [headerHeight]="50" [limit]="5" [columnMode]="'flex'"
+      [footerHeight]="50" [rowHeight]="'auto'" [rows]="publications">
+
+      <ngx-datatable-column name="{{columns[0].name}}" prop="{{columns[0].prop}}" [headerClass]="'header'"
+        [flexGrow]="1">
+        <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+          <p (dblclick)="updatePublication(row)" class="w-100 pointer">{{value}}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="{{columns[1].name}}" prop="{{columns[1].prop}}" [flexGrow]="2">
+        <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+          <p (dblclick)="updatePublication(row)" class="w-100 pointer">{{value}}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="{{columns[2].name}}" prop="{{columns[2].prop}}" [flexGrow]="1">
+        <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+          <p (dblclick)="updatePublication(row)" class="w-100 pointer">{{value | date: 'dd/MM/yyyy'}}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="{{columns[3].name}}" prop="{{columns[3].prop}}" [flexGrow]="1">
+        <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+          <p (dblclick)="updatePublication(row)" class="w-100 pointer">{{value | date: 'dd/MM/yyyy'}}</p>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="{{columns[4].name}}" prop="{{columns[4].prop}}" [flexGrow]="1">
+        <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+          <p (dblclick)="updatePublication(row)" class="w-100 pointer">{{value | date: 'dd/MM/yyyy'}}</p>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+
+
+  <div class="row" *ngIf="!tableView">
+    <div class="col-lg-4 col-sm-6" *ngFor="let item of publications">
+      <div class="card card-default mr-2 ml-2">
+        <div class="card-header">
+        </div>
+        <div class="card-body text-center">
+          <div class="container">
+            <img class="image mb-2 img-fluid" src="{{item.image}}" (click)="showImage(item.image)">
+            <!-- <span class="zoom-img fas fa-pencil-alt" (click)="editTodo(i, $event)"></span> -->
+            <div class="zoom-img">
+              <span class="icon" (click)="showImage(item.image)">
+                <i class="fa fa-search-plus"></i>
+              </span>
+            </div>
+
+          </div>
+          <h4>{{item.title}}</h4>
+          <p>{{item.description}}</p>
+        </div>
+        <div class="card-footer d-flex">
+          <div>
+            <button type="button" class="btn btn-xs btn-danger" (click)="deletePublication(item)">Delete</button>
+          </div>
+          <div class="ml-auto">
+            <button type="button" class="btn btn-xs btn-success" (click)="updatePublication(item)">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

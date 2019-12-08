@@ -1,0 +1,40 @@
+<div class="content-heading page-header">
+  <div>List of Publications
+    <small>Here you can find the list of all the publications</small></div>
+</div>
+<div class="card card-default">
+  <div class="form-inline page-header">
+    <div class="input-group mb-2 mr-sm-2 ml-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">
+          <i class="fa fa-search"></i>
+        </div>
+      </div>
+      <input class="form-control " id="buscar_text" type="text" placeholder="Buscar..." disabled />
+    </div>
+
+    <button class="ml-auto mr-2 btn btn-labeled btn-success" type="button" btnCheckbox [(ngModel)]="viewAll"
+      (click)="getData()">
+      <span class="btn-label">
+        <i class="fa fa-sliders-h" *ngIf="viewAll"></i>
+        <i class="fa fa-globe-americas" *ngIf="!viewAll"></i>
+      </span>{{viewAll === false ? 'View All': 'Apply Preferences'}}
+    </button>
+
+  </div>
+  <mat-spinner *ngIf="showSpinner" color="warn" class="spinner"></mat-spinner>
+
+  <div class="row">
+    <div class="col-lg-4 col-sm-6" *ngFor="let item of publications">
+      <div class="card card-default mr-2 ml-2">
+        <div class="card-body text-center">
+          <div class="container">
+            <img class="image mb-2 img-fluid" src="{{item.image}}" (click)="showImage(item.image)">
+
+          </div>
+          <h4>{{item.title}}</h4>
+          <p>{{item.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

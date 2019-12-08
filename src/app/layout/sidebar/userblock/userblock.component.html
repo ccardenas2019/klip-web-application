@@ -1,0 +1,27 @@
+<toaster-container [toasterconfig]="toasterconfig"></toaster-container>
+
+<div class="item user-block">
+    <!-- User picture-->
+    <div class="text-center">
+        <h1>{{view}}</h1>
+    </div>
+    <div class="user-block-picture">
+        <mat-spinner *ngIf="showSpinner" color="warn" class="spinner"></mat-spinner>
+        <div *ngIf="!showSpinner" class="user-block-status">
+            <img class="img-thumbnail rounded-circle" [src]="user.picture" alt="Avatar" />
+            <div class="circle bg-success circle-lg"></div>
+        </div>
+    </div>
+    <hr>
+    <!-- Name and Job-->
+    <div class="user-block-info">
+        <span class="user-block-name">Welcome, {{user.firstName}}</span>
+        <span class="user-block-role">{{user.email}}</span>
+    </div>
+    <br>
+    <p class="text-center">
+      <button *ngIf="!loginShow" class="mr-1 mb-1 btn btn-warning btn-sm" type="button" (click)="logout()">Log Out</button>
+      <button *ngIf="loginShow" class="mr-1 mb-1 btn btn-success btn-sm" type="button" (click)="login()">Log In</button>
+    </p>
+
+</div>

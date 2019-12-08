@@ -1,0 +1,88 @@
+@import "../../../shared/styles/bootstrap/_functions.scss";
+@import "../../../shared/styles/bootstrap/_variables.scss";
+@import "../../../shared/styles/bootstrap/_mixins";
+@import "../../../shared/styles/app/variables.scss";
+
+// Import module styling
+@import "~ngx-bootstrap/datepicker/bs-datepicker.css";
+
+/* Fix header text placement */
+.bs-datepicker-head > bs-datepicker-navigation-view {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Custom Theme */
+.theme-angle {
+  .bs-datepicker-head {
+    background-color: $info;
+  }
+  .bs-datepicker-body table td {
+    span.selected,
+    &.selected span,
+    span[class*="select-"]:after,
+    &[class*="select-"] span:after {
+      background-color: $info;
+    }
+    &.week span {
+      color: $info;
+    }
+  }
+}
+
+.swal-modal {
+  height: 35rem;
+  width: 35rem;
+}
+
+.swal-icon img {
+  width: 30rem;
+}
+
+
+
+
+
+
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .zoom-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .2s ease;
+    background-color: white;
+  }
+
+  .icon {
+    color: black;
+    font-size: 75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .container:hover .zoom-img {
+    opacity: 0.7;
+  }
+
+
+

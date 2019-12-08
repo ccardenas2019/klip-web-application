@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-lg-4">
+    <div class="card card-default">
+      <div class="card-body text-center">
+        <div class="py-4">
+          <img class="img-fluid rounded-circle img-thumbnail thumb96" src="assets/img/user/11.jpg" alt="Contact" />
+        </div>
+        <h3 class="m-0 text-bold">{{currentCustomer.firstName}} {{currentCustomer.lastName}}</h3>
+        <div class="my-3">
+          <p>{{currentCustomer.email}}</p>
+        </div>
+        <div class="text-center">
+          <button class="mr-1 btn btn-oval btn-primary mb-1" type="button" disabled>Edit Information</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="card card-default">
+      <div class="card-header d-flex align-items-center">
+        <div class="d-flex justify-content-center col">
+          <div class="h4 m-0 text-center">Set My Preferences</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row py-4 justify-content-center">
+          <div class="col-12 col-sm-10">
+            <label class="col-lg-8 col-form-label text-lg-left">Select your categories</label>
+            <div class="col-lg-8">
+              <ngx-select [defaultValue]="arrayCatSel" [multiple]="true" [items]="arrayCat"
+                (selectionChanges)="updateCatSelected($event)" (remove)="initCatSelected()" placeholder="Select Categories">
+              </ngx-select>
+            </div>
+            <div class="col-lg-10">
+              <i *ngFor="let cat of catSelected" class="fa fa-{{cat.icon}}"
+                style="font-size:x-large; padding: 3px; text-shadow: 1px 1px 1px #cccccce8;"
+                [style.color]="cat.color"></i>
+            </div>
+            <hr>
+            <div class="text-center">
+              <button class="mr-1 btn btn-oval btn-success mb-1" type="button" (click)="savePreferences()">Save Preferences</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

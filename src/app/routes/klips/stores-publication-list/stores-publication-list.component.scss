@@ -1,0 +1,173 @@
+@import "~@swimlane/ngx-datatable/index.css";
+@import "~@swimlane/ngx-datatable/themes/bootstrap.css";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+@import "~@swimlane/ngx-datatable/themes/material.scss";
+
+@import "../../../shared/styles/bootstrap/_functions";
+@import "../../../shared/styles/bootstrap/_variables";
+@import "../../../shared/styles/app/variables";
+
+.ngx-datatable.bootstrap {
+  background-color: transparent;
+  box-shadow: 0 0 0 #000;
+}
+
+.ngx-datatable.scroll-vertical {
+  height: 300px;
+}
+
+// workaround for use of detail rows
+// with other table in the same page
+.no-detail-row .datatable-row-detail {
+  display: none !important;
+}
+
+// change color of active cells selected
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active,
+.ngx-datatable.bootstrap.single-selection
+  .datatable-body-row.active
+  .datatable-row-group,
+.ngx-datatable.bootstrap.multi-selection .datatable-body-row.active,
+.ngx-datatable.bootstrap.multi-selection
+  .datatable-body-row.active
+  .datatable-row-group,
+.ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active,
+.ngx-datatable.bootstrap.multi-click-selection
+  .datatable-body-row.active
+  .datatable-row-group,
+.ngx-datatable.bootstrap.single-selection .datatable-body-row.active:hover,
+.ngx-datatable.bootstrap.single-selection
+  .datatable-body-row.active:hover
+  .datatable-row-group,
+.ngx-datatable.bootstrap.multi-selection .datatable-body-row.active:hover,
+.ngx-datatable.bootstrap.multi-selection
+  .datatable-body-row.active:hover
+  .datatable-row-group,
+.ngx-datatable.bootstrap.multi-click-selection .datatable-body-row.active:hover,
+.ngx-datatable.bootstrap.multi-click-selection
+  .datatable-body-row.active:hover
+  .datatable-row-group {
+  background-color: $primary !important;
+  .datatable-body-cell {
+    color: #fff;
+  }
+}
+// remove link decoration
+.datatable-icon-right {
+  text-decoration: none !important;
+}
+// align table with no data legend
+.ngx-datatable.bootstrap .empty-row {
+  text-align: center;
+  margin-top: 20px;
+}
+// tabele footer
+.ngx-datatable.bootstrap .datatable-footer {
+  background-color: transparent;
+  color: $body-color;
+}
+// table pagination
+
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager a {
+  color: $pagination-color;
+}
+.pager li > a,
+.pager li > span {
+  border-color: $pagination-border-color;
+}
+.ngx-datatable.bootstrap
+  .datatable-footer
+  .datatable-pager
+  ul
+  li:not(.disabled).active
+  a,
+.ngx-datatable.bootstrap
+  .datatable-footer
+  .datatable-pager
+  ul
+  li:not(.disabled):hover
+  a {
+  background-color: $primary;
+  border-color: $primary;
+  color: #fff;
+}
+
+.ngx-datatable.bootstrap .datatable-body {
+  border-color: $primary;
+  border: 0.25;
+}
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row {
+  border: 0.25;
+}
+
+.ngx-datatable.bootstrap
+  .datatable-body
+  .datatable-body-row.datatable-row-even {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+.ngx-datatable.material {
+  .datatable-header {
+    .datatable-header-cell {
+      // your styles here
+      font-size: medium;
+      font-weight: bold;
+    }
+  }
+}
+
+.swal-modal {
+  height: 35rem;
+  width: 35rem;
+}
+
+.swal-icon img {
+  width: 30rem;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.zoom-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.2s ease;
+  background-color: white;
+}
+
+.icon {
+  color: black;
+  font-size: 75px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .zoom-img {
+  opacity: 0.7;
+}
+
+.spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+}

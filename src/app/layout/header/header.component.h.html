@@ -1,0 +1,49 @@
+<!-- START Top Navbar-->
+<nav class="navbar topnavbar navbar-expand-lg navbar-light" role="navigation">
+    <!-- START navbar header-->
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#/">
+            <div class="brand-logo">
+                <img class="img-fluid" src="assets/img/logo.png" alt="App Logo" />
+            </div>
+            <div class="brand-logo-collapsed">
+                <img class="img-fluid" src="assets/img/logo-single.png" alt="App Logo" />
+            </div>
+        </a>
+       <button class="navbar-toggler" type="button" (click)="navCollapsed = !navCollapsed; $event.stopPropagation()">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+    </div>
+    <!-- END navbar header-->
+    <!-- START Nav wrapper-->
+    <div class="navbar-collapse collapse" [collapse]="navCollapsed">
+        <!-- Navbar Menu -->
+        <ul class="nav navbar-nav mr-auto flex-column flex-lg-row">
+            <ng-template ngFor let-item [ngForOf]="menuItems">
+                <!-- Single items -->
+                <li [routerLinkActive]="['active']" class="nav-item" *ngIf="!item.heading && !item.submenu">
+                    <a class="nav-link" [routerLink]="item.link" [title]="item.text">
+                        <span>{{(item.translate | translate) || item.text}}</span>
+                    </a>
+                </li>
+                <!-- Dropdown items -->
+                <li [routerLinkActive]="['active']" class="nav-item"
+                    [ngClass]="{'dropdown': item.submenu}" dropdown *ngIf="!item.heading && item.submenu">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" dropdownToggle>
+                        <span>{{(item.translate | translate) || item.text}}</span>
+                    </a>
+                    <!-- START Dropdown menu-->
+                    <div *dropdownMenu class="dropdown-menu">
+                        <a class="dropdown-item" [routerLinkActive]="['active']" *ngFor="let subitem of item.submenu" [routerLink]="subitem.link" [title]="subitem.text" >
+                            <span>{{(subitem.translate | translate) || subitem.text}}</span>
+                        </a>
+                    </div>
+                </li>
+            </ng-template>
+        </ul>
+        <!-- End Navbar Menu-->
+    </div>
+    <!-- END Nav wrapper-->
+    <app-navsearch [visible]="getNavSearchVisible()" (onclose)="setNavSearchVisible(false)"></app-navsearch>
+</nav>
+<!-- END Top Navbar-->
