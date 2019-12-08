@@ -12,3 +12,15 @@ To download and run this project, the main steps are:
 4. Once is finished, run **ng serve** and that's it!
 
 Any questions, contact me at: ccardenas2019@my.fit.edu
+
+---
+
+## Klip Web Application Online
+
+You also can find a running application of this project online at: [https://klip-final-project-cse5670.firebaseapp.com/](https://klip-final-project-cse5670.firebaseapp.com/).
+
+To access as an Admin use this credentials:
+    email: admin@klip.com
+    passw: Admin11
+
+To acces as a Customer you can Register.
