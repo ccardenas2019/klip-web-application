@@ -23,4 +23,6 @@ To access as an Admin use this credentials:
     email: admin@klip.com
     passw: Admin11
 
-To acces as a Customer you can Register.
+To acces as a Customer you can Register or use this credentials:
+    email: user@klip.com
+    passw: User11
