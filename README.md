@@ -7,7 +7,7 @@ This is an **Angular** Project. If you want to know more about Angular, please v
 To download and run this project, the main steps are:
 
 1. Make sure you have Node.js instaled. If not, [install NodeJS](https://nodejs.org/).
-2. Install the Angular CLI **npm install -g @angular/cli**.
+2. Install the Angular CLI, opening your command line and running: **npm install -g @angular/cli**.
 3. In the source folder, open your command line and install all the dependencies with:  **npm install** (this installation ins different that the step 2).
 4. Once is finished, run **ng serve** and that's it!
 
